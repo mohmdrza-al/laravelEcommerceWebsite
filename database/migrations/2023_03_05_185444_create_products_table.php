@@ -31,6 +31,7 @@ return new class extends Migration {
             $table->boolean('isActive')->default(1);
             $table->unsignedBigInteger('deliveryAmount')->default(0);
             $table->unsignedBigInteger('deliveryAmountPerProduct')->nullable();
+
             $table->timestamps();
         });
     }

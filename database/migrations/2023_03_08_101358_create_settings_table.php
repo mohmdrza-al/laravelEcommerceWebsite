@@ -13,23 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_addresses', function (Blueprint $table) {
+        Schema::create('settings', function (Blueprint $table) {
             $table->id();
 
-            $table->string('title');
             $table->string('address');
-            $table->string('phoneNumber');
-            $table->string('postalCode');
-
-//            Foreign key for Users table
-            $table->foreignId('userId');
-            $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
-
-            $table->bigInteger('provinceID');
-            $table->bigInteger('cityID');
-
+            $table->string('telephone');
+            $table->string('telephone2')->nullable();
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('telegram')->nullable();
+            $table->string('facebook')->nullable();
 
             $table->timestamps();
         });
@@ -42,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_addresses');
+        Schema::dropIfExists('settings');
     }
 };

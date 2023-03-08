@@ -28,6 +28,7 @@ return new class extends Migration {
 
 //          For softDeleting junk and offensive comments
             $table->softDeletes();
+
             $table->timestamps();
         });
     }

@@ -26,6 +26,7 @@ return new class extends Migration
 
             $table->string('value');
             $table->boolean('isActive')->default(1);
+
             $table->timestamps();
         });
     }

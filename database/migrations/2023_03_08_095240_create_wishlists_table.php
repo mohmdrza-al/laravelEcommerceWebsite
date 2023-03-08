@@ -12,13 +12,16 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('product_images', function (Blueprint $table) {
-            $table->id();
+        Schema::create('wishlists', function (Blueprint $table) {
+//            Foreign key for Users table
+            $table->foreignId('userId');
+            $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
 
 //            Foreign key for Products table
             $table->foreignId('productId');
             $table->foreign('productId')->references('id')->on('products')->onDelete('cascade');
-            $table->string('image');
+
+            $table->primary(['userId', 'productId']);
 
             $table->timestamps();
         });
@@ -31,6 +34,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('product_images');
+        Schema::dropIfExists('wishlists');
     }
 };

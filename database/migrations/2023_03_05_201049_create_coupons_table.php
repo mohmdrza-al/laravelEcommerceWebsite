@@ -13,10 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('provinces', function (Blueprint $table) {
+        Schema::create('coupons', function (Blueprint $table) {
             $table->id();
 
             $table->string('name');
+            $table->string('code');
+            $table->enum('type' ,['amount', 'percentage']);
+            $table->unsignedInteger('amount')->nullable();
+            $table->unsignedInteger('percentage')->nullable();
+            $table->unsignedInteger('max_percentageAmount')->nullable();
+            $table->timestamp('expiredAt');
+            $table->text('description')->nullable();
 
             $table->timestamps();
         });
@@ -29,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('provinces');
+        Schema::dropIfExists('coupones');
     }
 };

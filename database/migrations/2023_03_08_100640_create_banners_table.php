@@ -13,11 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('brands', function (Blueprint $table) {
+        Schema::create('banners', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('slug')->unique()->nullable();
+
+            $table->string('image');
+            $table->string('title')->nullable();
+            $table->string('text')->nullable();
+            $table->integer('priority')->nullable();
             $table->boolean('isActive')->default(1);
+            $table->string('type');
+            $table->string('buttonText')->nullable();
+            $table->string('buttonLink')->nullable();
+            $table->string('buttonIcon')->nullable();
 
             $table->timestamps();
         });
@@ -30,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('brands');
+        Schema::dropIfExists('banners');
     }
 };

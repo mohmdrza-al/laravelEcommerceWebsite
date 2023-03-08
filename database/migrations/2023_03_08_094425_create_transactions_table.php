@@ -12,18 +12,24 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('product_rate', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             $table->id();
 
 //            Foreign key for Users table
             $table->foreignId('userId');
             $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
 
-//            Foreign key for Products table
-            $table->foreignId('productId');
-            $table->foreign('productId')->references('id')->on('products')->onDelete('cascade');
+//            Foreign key for Orders table
+            $table->foreignId('orderId');
+            $table->foreign('orderId')->references('id')->on('orders')->onDelete('cascade');
 
-            $table->tinyInteger('rate');
+            $table->unsignedInteger('amount');
+            $table->string('refId')->nullable();
+            $table->string('token')->nullable();
+            $table->text('description')->nullable();
+
+            $table->enum('gatewayName', ['zarinPal', 'pay']);
+            $table->tinyInteger('status')->default(0);
 
             $table->timestamps();
         });
@@ -36,6 +42,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('product_rate');
+        Schema::dropIfExists('transactions');
     }
 };

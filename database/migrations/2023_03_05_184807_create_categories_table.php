@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->boolean('isActive')->default(1);
             $table->string('icon')->nullable();
+
             $table->timestamps();
         });
     }
