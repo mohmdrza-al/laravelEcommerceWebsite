@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/laravelEcommerceWebsite.iml" filepath="$PROJECT_DIR$/.idea/laravelEcommerceWebsite.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/sbPanel/.idea/sbPanel.iml" filepath="$USER_HOME$/Desktop/sbPanel/.idea/sbPanel.iml" />
     </modules>
   </component>
 </project>
